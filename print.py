@@ -8,18 +8,19 @@ import ghostscript
 # f1 = open(temp1, 'ab')
 # f1.write(pdf)
 # f1.close()
-pdftest = "C:\\Users\Lewa\Dev\pyprint\pdftest.pdf"
+def printPdf():
+    pdftest = "D:\\pds\px31.pdf"
 
-args = [
-        "-dPrinted", "-dBATCH", "-dNOSAFER", "-dNOPAUSE", "-dNOPROMPT"
-        "-q",
-        "-dNoCancel",
-        "-dNumCopies#2",
-        "-sDEVICE#mswinpr2",
-        f'-sOutputFile#"%printer%{win32print.GetDefaultPrinter()}"',
-        f'"{pdftest}"'
-    ]
+    args = [
+            "-dPrinted", "-dBATCH", "-dNOSAFER", "-dNOPAUSE", "-dNOPROMPT"
+            "-q",
+            "-dNoCancel",
+            "-dNumCopies#1",
+            "-sDEVICE#mswinpr2",
+            f'-sOutputFile#"%printer%{win32print.GetDefaultPrinter()}"',
+            f'"{pdftest}"'
+        ]
 
-encoding = locale.getpreferredencoding()
-args = [a.encode(encoding) for a in args]
-ghostscript.Ghostscript(*args)
+    encoding = locale.getpreferredencoding()
+    args = [a.encode(encoding) for a in args]
+    ghostscript.Ghostscript(*args)
